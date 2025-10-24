@@ -76,8 +76,11 @@ def dump_parquet(shard: DatasetShard, path: Path) -> None:
     except ImportError:  # pragma: no cover
         logger.warning("pandas not available, skipping parquet export.")
         return
-    frame = pd.DataFrame(shard.as_dicts())
-    frame.to_parquet(path, index=False)
+    try:
+        frame = pd.DataFrame(shard.as_dicts())
+        frame.to_parquet(path, index=False)
+    except Exception as e:  # pragma: no cover
+        logger.warning(f"Parquet export failed ({e}), skipping. JSONL export is sufficient.")
 
 
 def build(limit: int = 32) -> DatasetShard:
