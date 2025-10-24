@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nodepool-config
+  namespace: archon-rh
+data:
+  cpu-nodeSelector: |
+    kubernetes.io/arch: amd64
+  gpu-nodeSelector: |
+    accelerator: nvidia

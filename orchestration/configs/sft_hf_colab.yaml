@@ -1,0 +1,15 @@
+seed: 17
+model:
+  type: gpt2
+  vocab_size: 256
+  n_layer: 4
+  n_head: 4
+  n_embd: 128
+trainer:
+  batch_size: 16
+  steps: 300
+  learning_rate: 3e-4
+  output_dir: artifacts/checkpoints/sft_hf_colab
+  dataset: artifacts/data/mini_mathlib.jsonl
+  mixed_precision: fp16
+  accumulate_steps: 2

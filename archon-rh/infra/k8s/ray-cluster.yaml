@@ -1,0 +1,51 @@
+apiVersion: ray.io/v1
+kind: RayCluster
+metadata:
+  name: archon-ray
+  namespace: archon-rh
+spec:
+  headGroupSpec:
+    serviceType: ClusterIP
+    template:
+      spec:
+        containers:
+          - name: ray-head
+            image: rayproject/ray:2.10.0
+            command: ["ray", "start", "--head", "--dashboard-host=0.0.0.0", "--node-ip-address=$(MY_POD_IP)", "--block"]
+            env:
+              - name: MY_POD_IP
+                valueFrom:
+                  fieldRef:
+                    fieldPath: status.podIP
+            resources:
+              limits:
+                cpu: "4"
+                memory: 8Gi
+  workerGroupSpecs:
+    - groupName: cpu-workers
+      replicas: 2
+      template:
+        spec:
+          containers:
+            - name: ray-worker
+              image: rayproject/ray:2.10.0
+              command: ["ray", "start", "--address=ray://archon-ray-head-svc:10001", "--resources={\"CPU\":4}", "--block"]
+              resources:
+                limits:
+                  cpu: "4"
+                  memory: 8Gi
+    - groupName: gpu-workers
+      replicas: 1
+      template:
+        spec:
+          nodeSelector:
+            accelerator: nvidia
+          containers:
+            - name: ray-worker
+              image: rayproject/ray:2.10.0
+              command: ["ray", "start", "--address=ray://archon-ray-head-svc:10001", "--num-gpus=1", "--block"]
+              resources:
+                limits:
+                  nvidia.com/gpu: "1"
+                  cpu: "8"
+                  memory: 32Gi

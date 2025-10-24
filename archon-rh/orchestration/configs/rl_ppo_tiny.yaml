@@ -1,0 +1,8 @@
+seed: 21
+episodes: 10
+horizon: 8
+backend: mock
+learning_rate: 0.005
+gamma: 0.95
+clip: 0.2
+output_dir: artifacts/checkpoints/rl_ppo_tiny

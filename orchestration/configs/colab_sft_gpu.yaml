@@ -1,0 +1,17 @@
+# GPU-optimized SFT config for Google Colab (T4/V100/A100)
+seed: 42
+model:
+  type: gpt2
+  vocab_size: 256
+  n_layer: 8        # Increased from 4 for GPU
+  n_head: 8         # Increased from 4
+  n_embd: 512       # Increased from 128
+trainer:
+  batch_size: 32    # Larger batch for GPU
+  steps: 5000       # More steps for better training
+  learning_rate: 5e-4
+  output_dir: artifacts/checkpoints/sft_colab_gpu
+  dataset: prover/datasets/sample_data/mini_mathlib.jsonl
+  gradient_accumulation_steps: 4  # Effective batch = 128
+  mixed_precision: fp16             # Enable mixed precision for speed
+

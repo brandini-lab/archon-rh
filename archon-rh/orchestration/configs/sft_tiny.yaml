@@ -1,0 +1,10 @@
+dataset:
+  source: prover/tests/data/sample_tactics.jsonl
+  output_dir: artifacts/datasets
+  limit: 32
+output_dir: artifacts/checkpoints/sft
+seq_len: 128
+batch_size: 4
+lr: 0.001
+seed: 42
+vocab: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-*/()=<>_:;,. \n"

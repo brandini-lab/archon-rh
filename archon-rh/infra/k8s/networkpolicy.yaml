@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: archon-egress-deny
+  namespace: archon-rh
+spec:
+  podSelector: {}
+  policyTypes:
+    - Egress
+    - Ingress
+  ingress:
+    - {}
+  egress: []
+

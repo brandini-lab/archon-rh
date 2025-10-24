@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: archon-sft-train
+  namespace: archon-rh
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: sft-train
+          image: archon-rh/trainer:latest
+          args: ["--config", "orchestration/configs/sft_tiny.yaml", "--max-steps", "100"]
+          resources:
+            limits:
+              cpu: "4"
+              memory: 8Gi

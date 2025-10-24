@@ -1,0 +1,2 @@
+{"goal": "? True", "tactic": "trivial", "hypotheses": {}, "metadata": {"source": "sample"}}
+{"goal": "? Nat.zero + 1 = 1", "tactic": "simp", "hypotheses": {}, "metadata": {"source": "sample"}}

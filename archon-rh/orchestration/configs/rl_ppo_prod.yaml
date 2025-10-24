@@ -1,0 +1,8 @@
+seed: 42
+episodes: 1000
+horizon: 32
+backend: leandojo
+learning_rate: 0.0003
+gamma: 0.99
+clip: 0.15
+output_dir: /checkpoints/rl_ppo_prod

@@ -1,0 +1,11 @@
+# GPU-optimized RL config for Google Colab
+seed: 42
+episodes: 2000      # More episodes for GPU
+horizon: 64         # Longer horizons
+backend: mock       # Use mock for Colab (LeanDojo requires setup)
+learning_rate: 0.0003
+gamma: 0.99
+clip: 0.2
+output_dir: artifacts/checkpoints/rl_colab_gpu
+batch_size: 64      # Larger batches for GPU
+

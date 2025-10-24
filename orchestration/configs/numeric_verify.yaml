@@ -1,0 +1,5 @@
+intervals:
+  - lo: 0.0
+    hi: 10.0
+    samples: 32
+output: artifacts/numerics/certificates.json

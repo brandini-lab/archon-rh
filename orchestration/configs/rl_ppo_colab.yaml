@@ -1,0 +1,8 @@
+seed: 29
+episodes: 50
+horizon: 16
+backend: mock
+learning_rate: 0.0005
+gamma: 0.99
+clip: 0.2
+output_dir: artifacts/checkpoints/rl_ppo_colab

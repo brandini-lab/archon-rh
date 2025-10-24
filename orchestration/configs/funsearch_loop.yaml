@@ -1,0 +1,6 @@
+iterations: 20
+objectives:
+  - li_criterion
+export_dir: artifacts/conjecture
+lean_export: formal/leanlib/ArchonRiemann/Generated.lean
+seed: 0

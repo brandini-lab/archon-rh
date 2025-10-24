@@ -1,0 +1,18 @@
+# Multi-GPU config for Colab Pro+ (2x A100 or similar)
+seed: 42
+model:
+  type: gpt2
+  vocab_size: 256
+  n_layer: 12       # Deeper model for multi-GPU
+  n_head: 12
+  n_embd: 768       # Larger embeddings
+trainer:
+  batch_size: 64    # Per-GPU batch size
+  steps: 10000
+  learning_rate: 5e-4
+  output_dir: artifacts/checkpoints/sft_multigpu
+  dataset: prover/datasets/sample_data/mini_mathlib.jsonl
+  gradient_accumulation_steps: 2
+  mixed_precision: fp16
+  num_gpus: 2       # Set based on availability
+

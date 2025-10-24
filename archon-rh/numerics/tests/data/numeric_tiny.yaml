@@ -1,0 +1,5 @@
+intervals:
+  - lo: 0.0
+    hi: 5.0
+    samples: 16
+output: artifacts/test_numeric_cert.json

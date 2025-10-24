@@ -1,0 +1,13 @@
+seed: 11
+model:
+  type: gpt2
+  vocab_size: 64
+  n_layer: 2
+  n_head: 2
+  n_embd: 64
+trainer:
+  batch_size: 4
+  steps: 20
+  learning_rate: 5e-4
+  output_dir: artifacts/checkpoints/sft_hf_tiny
+  dataset: artifacts/data/mini_mathlib.jsonl
