@@ -53,14 +53,21 @@ The tests run entirely on CPU and operate on toy datasets or truncated numeric p
 
 ## Architecture Overview
 
+* **libs:** Common utilities (logging, artifacts management)
 * **Formal:** Lean library with RH-adjacent lemmas plus LeanDojo RPC bridge.
 * **Prover:** Dataset builders, supervised training, RL self-play, inference runners, metrics.
 * **Conjecture:** FunSearch loop generating new analytic kernels and exporting conjectures.
 * **Numerics:** Interval-arithmetic bindings and certificate emitters.
-* **Orchestration:** Ray + CLI pipelines, plus job configuration.
+* **Orchestration:** CLI pipelines and job configuration (Ray optional for distributed execution).
 * **Safety:** Reward policy enforcement, sandboxing, signed audit logs.
 
 Each subsystem has focused unit tests along with end-to-end acceptance coverage.
+
+## Python Support
+
+- **Required:** Python 3.10, 3.11, or 3.12
+- **Ray (optional):** For distributed orchestration, install separately with `pip install -e .[ray]`
+- **Local dev tools:** Install with `pip install -e .[local]` for FastAPI, uvicorn, etc.
 
 ## Re-running Acceptance Tests
 

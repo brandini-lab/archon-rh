@@ -11,7 +11,7 @@ trainer:
   steps: 5000       # More steps for better training
   learning_rate: 5e-4
   output_dir: artifacts/checkpoints/sft_colab_gpu
-  dataset: prover/datasets/sample_data/mini_mathlib.jsonl
+  dataset: artifacts/data/mini_mathlib.jsonl
   gradient_accumulation_steps: 4  # Effective batch = 128
   mixed_precision: fp16             # Enable mixed precision for speed
 

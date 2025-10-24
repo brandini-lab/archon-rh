@@ -34,20 +34,19 @@ Fast testing and validation:
 2. File → Upload notebook
 3. Select one of the `.ipynb` files from this directory
 
+Or use direct links:
+- Full Setup: https://colab.research.google.com/github/brandini-lab/archon-rh/blob/main/colab/ARCHON_RH_Complete_Setup.ipynb
+- Quick Start: https://colab.research.google.com/github/brandini-lab/archon-rh/blob/main/colab/Quick_Start.ipynb
+
 ### Step 2: Enable GPU
 1. Runtime → Change runtime type
 2. Hardware accelerator: **GPU** (T4/V100/A100)
 3. Runtime shape: **High-RAM** (if available)
 
-### Step 3: Update Repository URL
-In the clone cell, replace `<YOUR_USERNAME>` with your actual GitHub username or organization:
-```python
-!git clone https://github.com/YOUR_USERNAME/archon-rh /content/archon-rh
-```
-
-### Step 4: Run All Cells
+### Step 3: Run All Cells
 - Runtime → Run all (Ctrl+F9)
 - Or run cells sequentially (Shift+Enter)
+- The notebook will automatically clone from GitHub
 
 ## GPU Requirements
 
@@ -62,6 +61,8 @@ In the clone cell, replace `<YOUR_USERNAME>` with your actual GitHub username or
 - **Fallback:** If LeanDojo unavailable, uses trivial examples
 - **Location:** `artifacts/data/mini_mathlib.jsonl`
 - **Size:** Configurable (default: 32-64 examples for testing)
+
+**Note:** Ray is now optional and not required for Colab. The package installs without it by default.
 
 **Dataset Structure:**
 ```json

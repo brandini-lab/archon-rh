@@ -1,2 +1,0 @@
-{"id": "sample-1", "theorem": "toyLemma", "goal": "? Nat.succ 0 = 1", "tactic": "simp", "result_goal": "? True"}
-{"id": "sample-2", "theorem": "toyLemma", "goal": "? Nat.succ 0 = 1", "tactic": "rfl", "result_goal": "? True"}

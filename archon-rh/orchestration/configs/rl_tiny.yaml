@@ -1,9 +1,0 @@
-theorem_path: formal/tests/data/toy.lean
-tactics:
-  - simp
-  - rfl
-  - dec_trivial
-log_dir: artifacts/rl
-seed: 1234
-temperature: 1.0
-lr: 0.3
